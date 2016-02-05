@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "AppDelegate.h"
+#import "OnboardingContentViewController.h"
+#import "OnboardingViewController.h"
+@interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
 
 
 @end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -11,11 +11,42 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "597F56C54F2050BEE2BF6BC5DE49D44C"
+               BuildableName = "libOnboard.a"
+               BlueprintName = "Onboard"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "12AC879C9251CE1567D99D93D23C766E"
+               BuildableName = "libPods.a"
+               BlueprintName = "Pods"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ABD49B901C53531800156E07"
-               BuildableName = "Save.app"
+               BuildableName = "Solomon Saver.app"
                BlueprintName = "Save"
                ReferencedContainer = "container:Save.xcodeproj">
             </BuildableReference>
@@ -53,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ABD49B901C53531800156E07"
-            BuildableName = "Save.app"
+            BuildableName = "Solomon Saver.app"
             BlueprintName = "Save"
             ReferencedContainer = "container:Save.xcodeproj">
          </BuildableReference>
@@ -76,7 +107,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ABD49B901C53531800156E07"
-            BuildableName = "Save.app"
+            BuildableName = "Solomon Saver.app"
             BlueprintName = "Save"
             ReferencedContainer = "container:Save.xcodeproj">
          </BuildableReference>
@@ -95,7 +126,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ABD49B901C53531800156E07"
-            BuildableName = "Save.app"
+            BuildableName = "Solomon Saver.app"
             BlueprintName = "Save"
             ReferencedContainer = "container:Save.xcodeproj">
          </BuildableReference>

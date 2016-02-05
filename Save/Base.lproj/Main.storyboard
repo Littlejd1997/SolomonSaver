@@ -1,25 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-V4-nz4">
+                                <rect key="frame" x="20" y="36" width="560" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8wj-Gz-5wx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="skl-fa-RhB"/>
+                                </connections>
+                            </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgw-vC-xGs">
+                                <rect key="frame" x="20" y="252" width="560" height="249"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO1-Hy-p6I">
+                                        <rect key="frame" x="0.0" y="86" width="560" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Reward yourself: $0"/>
+                                        <connections>
+                                            <action selector="sendEmail" destination="BYZ-38-t0r" eventType="touchUpInside" id="9o2-Z4-H0z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QO1-Hy-p6I" secondAttribute="trailing" id="1N3-UL-pw4"/>
+                                    <constraint firstItem="QO1-Hy-p6I" firstAttribute="centerY" secondItem="Wgw-vC-xGs" secondAttribute="centerY" constant="-20" id="88y-Lx-ZST"/>
+                                    <constraint firstItem="QO1-Hy-p6I" firstAttribute="leading" secondItem="Wgw-vC-xGs" secondAttribute="leading" id="DGZ-Nn-vHr"/>
+                                    <constraint firstItem="QO1-Hy-p6I" firstAttribute="centerX" secondItem="Wgw-vC-xGs" secondAttribute="centerX" id="NaN-o3-ord"/>
+                                </constraints>
+                            </view>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Solomongroup.png" translatesAutoresizingMaskIntoConstraints="NO" id="9hR-OK-HcG">
+                                <rect key="frame" x="20" y="501" width="560" height="99"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YV0-Vq-RO6" appends="YES" id="uBM-pq-AbH"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jYD-V4-nz4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="0qm-uw-GZw"/>
+                            <constraint firstItem="jYD-V4-nz4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DwP-g4-CMx"/>
+                            <constraint firstItem="Wgw-vC-xGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ElN-bE-1qn"/>
+                            <constraint firstItem="jYD-V4-nz4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ixy-14-kvC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jYD-V4-nz4" secondAttribute="trailing" id="J0P-lS-rbv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wgw-vC-xGs" secondAttribute="trailing" id="MWz-1n-Y1r"/>
+                            <constraint firstItem="9hR-OK-HcG" firstAttribute="top" secondItem="Wgw-vC-xGs" secondAttribute="bottom" id="Ot2-C5-Ipf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9hR-OK-HcG" secondAttribute="bottom" id="Tfy-xR-c59"/>
+                            <constraint firstItem="Wgw-vC-xGs" firstAttribute="top" secondItem="jYD-V4-nz4" secondAttribute="bottom" id="iNi-4g-Q2F"/>
+                            <constraint firstItem="9hR-OK-HcG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lZb-Dw-t4c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9hR-OK-HcG" secondAttribute="trailing" id="nAF-kX-YCf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="invest" destination="QO1-Hy-p6I" id="6sm-t4-tti"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="YV0-Vq-RO6">
+                    <connections>
+                        <action selector="clearDefaults:" destination="BYZ-38-t0r" id="ycF-Sh-xLR"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="559" y="450"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Solomongroup.png" width="240" height="99"/>
+    </resources>
 </document>

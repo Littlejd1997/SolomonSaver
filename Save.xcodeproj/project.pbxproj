@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB16EF981C554895001CA064 /* Solomongroup.png in Resources */ = {isa = PBXBuildFile; fileRef = AB16EF971C554895001CA064 /* Solomongroup.png */; };
+		AB4A36981C590BE900386581 /* cash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB4A36971C590BE900386581 /* cash.jpg */; };
+		AB6CD9DC1C5F4B73004E53FC /* OnboardingContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6CD9D91C5F4B73004E53FC /* OnboardingContentViewController.m */; };
+		AB6CD9DD1C5F4B73004E53FC /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6CD9DB1C5F4B73004E53FC /* OnboardingViewController.m */; };
 		ABD49B961C53531800156E07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD49B951C53531800156E07 /* main.m */; };
 		ABD49B991C53531800156E07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD49B981C53531800156E07 /* AppDelegate.m */; };
 		ABD49B9C1C53531800156E07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD49B9B1C53531800156E07 /* ViewController.m */; };
@@ -35,7 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ABD49B911C53531800156E07 /* Save.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Save.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB16EF971C554895001CA064 /* Solomongroup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Solomongroup.png; sourceTree = SOURCE_ROOT; };
+		AB4A36971C590BE900386581 /* cash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cash.jpg; sourceTree = "<group>"; };
+		AB6CD9D71C5F4B73004E53FC /* OnboardingContentViewController_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingContentViewController_Private.h; path = Onboard/Source/OnboardingContentViewController_Private.h; sourceTree = "<group>"; };
+		AB6CD9D81C5F4B73004E53FC /* OnboardingContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingContentViewController.h; path = Onboard/Source/OnboardingContentViewController.h; sourceTree = "<group>"; };
+		AB6CD9D91C5F4B73004E53FC /* OnboardingContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardingContentViewController.m; path = Onboard/Source/OnboardingContentViewController.m; sourceTree = "<group>"; };
+		AB6CD9DA1C5F4B73004E53FC /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = Onboard/Source/OnboardingViewController.h; sourceTree = "<group>"; };
+		AB6CD9DB1C5F4B73004E53FC /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardingViewController.m; path = Onboard/Source/OnboardingViewController.m; sourceTree = "<group>"; };
+		ABD49B911C53531800156E07 /* Solomon Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solomon Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD49B951C53531800156E07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ABD49B971C53531800156E07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABD49B981C53531800156E07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,13 +96,14 @@
 				ABD49BAD1C53531800156E07 /* SaveTests */,
 				ABD49BB81C53531800156E07 /* SaveUITests */,
 				ABD49B921C53531800156E07 /* Products */,
+				F0A65D19339DEC3ADA5E806E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		ABD49B921C53531800156E07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABD49B911C53531800156E07 /* Save.app */,
+				ABD49B911C53531800156E07 /* Solomon Saver.app */,
 				ABD49BAA1C53531800156E07 /* SaveTests.xctest */,
 				ABD49BB51C53531800156E07 /* SaveUITests.xctest */,
 			);
@@ -117,6 +129,8 @@
 		ABD49B941C53531800156E07 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB16EF971C554895001CA064 /* Solomongroup.png */,
+				AB4A36971C590BE900386581 /* cash.jpg */,
 				ABD49B951C53531800156E07 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -140,6 +154,18 @@
 			path = SaveUITests;
 			sourceTree = "<group>";
 		};
+		F0A65D19339DEC3ADA5E806E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB6CD9D71C5F4B73004E53FC /* OnboardingContentViewController_Private.h */,
+				AB6CD9D81C5F4B73004E53FC /* OnboardingContentViewController.h */,
+				AB6CD9D91C5F4B73004E53FC /* OnboardingContentViewController.m */,
+				AB6CD9DA1C5F4B73004E53FC /* OnboardingViewController.h */,
+				AB6CD9DB1C5F4B73004E53FC /* OnboardingViewController.m */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,7 +183,7 @@
 			);
 			name = Save;
 			productName = Save;
-			productReference = ABD49B911C53531800156E07 /* Save.app */;
+			productReference = ABD49B911C53531800156E07 /* Solomon Saver.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ABD49BA91C53531800156E07 /* SaveTests */ = {
@@ -207,7 +233,12 @@
 				TargetAttributes = {
 					ABD49B901C53531800156E07 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = HXGA96SS3Y;
+						DevelopmentTeam = 4CEY55SWDX;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ABD49BA91C53531800156E07 = {
 						CreatedOnToolsVersion = 7.2;
@@ -247,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABD49BA41C53531800156E07 /* LaunchScreen.storyboard in Resources */,
+				AB4A36981C590BE900386581 /* cash.jpg in Resources */,
 				ABD49BA11C53531800156E07 /* Assets.xcassets in Resources */,
 				ABD49B9F1C53531800156E07 /* Main.storyboard in Resources */,
+				AB16EF981C554895001CA064 /* Solomongroup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +309,8 @@
 				ABD49B9C1C53531800156E07 /* ViewController.m in Sources */,
 				ABD49B991C53531800156E07 /* AppDelegate.m in Sources */,
 				ABD49B961C53531800156E07 /* main.m in Sources */,
+				AB6CD9DD1C5F4B73004E53FC /* OnboardingViewController.m in Sources */,
+				AB6CD9DC1C5F4B73004E53FC /* OnboardingContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,10 +451,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				INFOPLIST_FILE = Save/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.schober.Save;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.schober.solomonsaver;
+				PRODUCT_NAME = "Solomon Saver";
+				PROVISIONING_PROFILE = "05d7dcb7-3c61-4ee9-afd6-435089617603";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -427,10 +471,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				INFOPLIST_FILE = Save/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.schober.Save;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.schober.solomonsaver;
+				PRODUCT_NAME = "Solomon Saver";
+				PROVISIONING_PROFILE = "05d7dcb7-3c61-4ee9-afd6-435089617603";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -501,6 +554,7 @@
 				ABD49BC01C53531800156E07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABD49BC11C53531800156E07 /* Build configuration list for PBXNativeTarget "SaveTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +563,7 @@
 				ABD49BC31C53531800156E07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABD49BC41C53531800156E07 /* Build configuration list for PBXNativeTarget "SaveUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +572,7 @@
 				ABD49BC61C53531800156E07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
