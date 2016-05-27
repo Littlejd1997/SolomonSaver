@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import <MessageUI/MessageUI.h>
 #import "OnboardingContentViewController.h"
 #import "OnboardingViewController.h"
 @interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>

@@ -19,6 +19,7 @@
 		ABD49BA41C53531800156E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD49BA21C53531800156E07 /* LaunchScreen.storyboard */; };
 		ABD49BAF1C53531800156E07 /* SaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD49BAE1C53531800156E07 /* SaveTests.m */; };
 		ABD49BBA1C53531800156E07 /* SaveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD49BB91C53531800156E07 /* SaveUITests.m */; };
+		ABDF93E81CF7F371004B9137 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDF93E71CF7F371004B9137 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ABD49BB51C53531800156E07 /* SaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD49BB91C53531800156E07 /* SaveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaveUITests.m; sourceTree = "<group>"; };
 		ABD49BBB1C53531800156E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABDF93E71CF7F371004B9137 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDF93E81CF7F371004B9137 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +160,7 @@
 		F0A65D19339DEC3ADA5E806E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABDF93E71CF7F371004B9137 /* MessageUI.framework */,
 				AB6CD9D71C5F4B73004E53FC /* OnboardingContentViewController_Private.h */,
 				AB6CD9D81C5F4B73004E53FC /* OnboardingContentViewController.h */,
 				AB6CD9D91C5F4B73004E53FC /* OnboardingContentViewController.m */,
@@ -451,7 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				INFOPLIST_FILE = Save/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -462,7 +466,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.schober.solomonsaver;
 				PRODUCT_NAME = "Solomon Saver";
-				PROVISIONING_PROFILE = "05d7dcb7-3c61-4ee9-afd6-435089617603";
+				PROVISIONING_PROFILE = "116d1a76-37b1-4031-a6de-be251a589f31";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -471,7 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Schober (4CEY55SWDX)";
 				INFOPLIST_FILE = Save/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -482,7 +486,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.schober.solomonsaver;
 				PRODUCT_NAME = "Solomon Saver";
-				PROVISIONING_PROFILE = "05d7dcb7-3c61-4ee9-afd6-435089617603";
+				PROVISIONING_PROFILE = "116d1a76-37b1-4031-a6de-be251a589f31";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

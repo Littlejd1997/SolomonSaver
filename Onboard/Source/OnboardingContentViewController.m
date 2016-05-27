@@ -339,7 +339,7 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     // if we want to navigate to the next view controller, tell our delegate
     // to handle it
     if (self.movesToNextViewController) {
-        [self.delegate moveNextPage];
+//        [self.delegate moveNextPage];
     }
     
     // call the provided action handler

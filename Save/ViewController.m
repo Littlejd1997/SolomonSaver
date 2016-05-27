@@ -7,16 +7,21 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
+#define EMAIL @"saver@solomonway.com"
+@interface ViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *invest;
 
 @end
 
 @implementation ViewController
+NSArray *values;
 NSInteger cents = 0;
 NSUserDefaults *defaults;
-NSInteger dollars = 0;
+NSNumber *dollars = 0;
+- (void)viewDidLoad{
+    values = @[@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@25,@50,@75,@100];
+    
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     defaults = [NSUserDefaults standardUserDefaults];
@@ -30,9 +35,8 @@ NSInteger dollars = 0;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 -(void)showOnboarding{
-    
     __block OnboardingViewController *onboardingVC;
-    OnboardingContentViewController *namePage = [OnboardingContentViewController contentWithTitle:@"Welcome" body:@"Thanks for installing the \"Solomon Saver\" app.\n\nTo get started, we need a few things.\n\nLet's start with a name" image:[UIImage imageNamed:@"Solomongroup.png"] buttonText:@"Enter Full Name" action:^{
+    OnboardingContentViewController *namePage = [OnboardingContentViewController contentWithTitle:@"Welcome" body:@"Thanks for installing \"The Solomon Saver.\"\n\nTo get started, we need a few things.\n\nLet's start with a name" image:[UIImage imageNamed:@"Solomongroup.png"] buttonText:@"Enter Full Name" action:^{
         [self onboardingNameAlertWithVC:onboardingVC];
     }];
     OnboardingContentViewController *emailPage = [OnboardingContentViewController contentWithTitle:@"Thanks so much" body:@"You're almost done.\n\nNow we need your email address" image:[UIImage imageNamed:@"Solomongroup.png"] buttonText:@"Enter E-mail" action:^{
@@ -43,10 +47,10 @@ NSInteger dollars = 0;
     }];
     onboardingVC = [OnboardingViewController onboardWithBackgroundImage:[UIImage imageNamed:@"cash.jpg"] contents:@[namePage,emailPage,phonePage]];
     if ([[UIScreen mainScreen].currentMode size].height < 1000){
-    onboardingVC.topPadding = 10;
-    onboardingVC.underIconPadding = 5;
-    onboardingVC.titleFontSize = 22;
-    onboardingVC.bodyFontSize = 18;
+        onboardingVC.topPadding = 10;
+        onboardingVC.underIconPadding = 5;
+        onboardingVC.titleFontSize = 22;
+        onboardingVC.bodyFontSize = 18;
     }else if ([[UIScreen mainScreen].currentMode size].height < 1200){
         onboardingVC.topPadding = 15;
         onboardingVC.underIconPadding = 5;
@@ -59,9 +63,27 @@ NSInteger dollars = 0;
     phonePage.movesToNextViewController = YES;
     onboardingVC.swipingEnabled = NO;
     onboardingVC.hidePageControl = YES;
-    [self presentViewController:onboardingVC animated:YES completion:nil];
+    UIAlertController *legalText = [UIAlertController alertControllerWithTitle:@"The Solomon Saver" message:@"This product is a service item for existing clients of The Solomon Group Financial Services, LLC. If you are not currently a client, contact The Solomon Group Financial Services at "EMAIL preferredStyle:UIAlertControllerStyleAlert];
+    [legalText addAction:[UIAlertAction actionWithTitle:@"Contact" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        MFMailComposeViewController* composeVC = [[MFMailComposeViewController alloc] init];
+        composeVC.mailComposeDelegate = self;
+        [composeVC setToRecipients:@[EMAIL]];
+        NSLog(EMAIL);
+        [self presentViewController:composeVC animated:YES completion:nil];
+    }]];
+    [legalText addAction:[UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self presentViewController:onboardingVC animated:YES completion:nil];
+    }]];
+    [self presentViewController:legalText animated:YES completion:nil];
+    
 }
-
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    // Check the result or perform other tasks.
+    
+    // Dismiss the mail compose view controller.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +91,7 @@ NSInteger dollars = 0;
     // Dispose of any resources that can be recreated.
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 100;
+    return [values count];
 }
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
@@ -77,24 +99,24 @@ NSInteger dollars = 0;
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSInteger selectedRow = [pickerView selectedRowInComponent:0];
     [self updateLabelWithRow:selectedRow];
-    return [NSString stringWithFormat:@"$%ld",row+1];
+    return [NSString stringWithFormat:@"$%@",values[row]];
     
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     [self updateLabelWithRow:row];
 }
 -(void)updateLabelWithRow:(NSInteger)row{
-    dollars = row+1;
+    dollars = values[row];
     [UIView setAnimationsEnabled:NO];
     [self.invest setTitle:[self amountString] forState:UIControlStateNormal];
     [self.invest layoutIfNeeded];
     [UIView setAnimationsEnabled:YES];
 }
 -(NSString*)amountString{
-    return [NSString stringWithFormat:@"Reward yourself: $%ld",dollars];
+    return [NSString stringWithFormat:@"Reward yourself: $%@",dollars];
 }
 -(float)amountFloat{
-    return dollars + (cents/100);
+    return [dollars floatValue];
 }
 -(IBAction)sendEmail{
     [AppDelegate sendEmailWithAmount:[self amountFloat]];
@@ -125,7 +147,9 @@ NSInteger dollars = 0;
                                                handler:^(UIAlertAction * action) {
                                                    [defaults setObject:[[[alert textFields]firstObject]text] forKey:@"phone"];
                                                    [defaults synchronize];
-                                                   [self checkOnboardingFinishedLastVC:vc]; }];
+                                                   
+                                                   [self checkOnboardingFinishedLastVC:vc];
+                                               }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
                                                        [alert dismissViewControllerAnimated:YES completion:nil];
@@ -142,7 +166,7 @@ NSInteger dollars = 0;
 }
 
 
--(void)onboardingEmailAlertWithVC:(UIViewController*)vc{
+-(void)onboardingEmailAlertWithVC:(OnboardingViewController*)vc{
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Email Address"
                                   message:[NSString stringWithFormat:@"Enter your %@",@"E-Mail Address"]
@@ -152,6 +176,7 @@ NSInteger dollars = 0;
                                                handler:^(UIAlertAction * action) {
                                                    [defaults setObject:[[[alert textFields]firstObject]text] forKey:@"email"];
                                                    [defaults synchronize];
+                                                   [vc moveNextPage];
                                                    [self checkOnboardingFinished]; }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
@@ -169,7 +194,7 @@ NSInteger dollars = 0;
     [vc presentViewController:alert animated:YES completion:nil];
 }
 
--(void)onboardingNameAlertWithVC:(UIViewController*)vc {
+-(void)onboardingNameAlertWithVC:(OnboardingViewController*)vc {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Name"
                                   message:[NSString stringWithFormat:@"Enter your %@",@"Name"]
@@ -182,8 +207,9 @@ NSInteger dollars = 0;
                                                        [defaults setObject:fullName forKey:@"name"];
                                                        [defaults synchronize];
                                                    }
-                                                   
-                                                   [self checkOnboardingFinished]; }];
+                                                   [vc moveNextPage];
+                                                   [self checkOnboardingFinished];
+                                               }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
                                                        [alert dismissViewControllerAnimated:YES completion:nil];
