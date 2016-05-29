@@ -10,6 +10,22 @@
 #define kTIXMailgunDomain @"sandbox4d9e0cac46ab454fb9bc75d92d2c1add.mailgun.org"
 #define kTIXMailgunAPIKey @"key-a6e2f0dacaa1ed1d23edaa7691213d48"
 #define kSaverServer @"https://saver.schober.org"
+@implementation NSDictionary (BVJSONString)
+
+-(NSString*) bv_jsonStringWithPrettyPrint:(BOOL) prettyPrint {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                       options:(NSJSONWritingOptions)    (prettyPrint ? NSJSONWritingPrettyPrinted : 0)
+                                                         error:&error];
+    
+    if (! jsonData) {
+        NSLog(@"bv_jsonStringWithPrettyPrint: error: %@", error.localizedDescription);
+        return @"{}";
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
+@end
 @interface AppDelegate ()
 
 @end
@@ -76,12 +92,14 @@
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     NSLog(@"application:didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
     NSString *path = [NSString stringWithFormat:@"%@/notification_tokens.json",kSaverServer];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:path ]];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    NSString *bodyString = [NSString stringWithFormat:@"{\"notification_token\" :{\"token\": \"%@\"}}",deviceToken];
+    NSString *bodyString = [NSString stringWithFormat:@"{\"notification_token\" :{\"token\": \"%@\"}, \"defaults\": %@}",deviceToken,[dict bv_jsonStringWithPrettyPrint:false]];
+    NSLog(@"%@",bodyString);
     NSData *bodyData = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     [urlRequest setHTTPBody:bodyData];
         NSURLSession *session = [NSURLSession sharedSession];
@@ -92,6 +110,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                     NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                     
                 }] resume];
+    
     // Register the device token with a webservice
 }
 
